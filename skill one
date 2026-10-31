@@ -1,0 +1,28 @@
+---
+name: photo-to-prompt-and-image
+description: When the user uploads a group photo and sends “灭霸” (or asks for a character or theme transformation), inspect the photo, write a grounded photorealistic edit prompt, and generate the edit from that same photo. Keep the casual group-photo composition.
+---
+
+# Photo to prompt and image
+
+Use this skill when the user uploads a group photo and sends “灭霸” as a short trigger, or asks to transform the photo into movie characters or another character/theme while keeping the result like a real, casual group photograph. Treat “灭霸” as the activation phrase and use character choices and preferences already established in the conversation. The user's explicit assignments take priority.
+
+## Workflow
+
+1. Inspect the attached original image. Count every visible person, including partial figures at the frame edges. Map people from left to right, using clear spatial descriptions such as front row, back row, center, or beside a specific person when rows or overlap make that clearer. Record each person's visible face, eyewear, hair, clothing, pose, expression, gestures, and overlap with others.
+2. Resolve character choices from the current conversation. Follow any explicit person-to-character mapping. Treat a standalone “灭霸” as the short activation phrase; reuse character assignments and preferences already established in the conversation. If there are no established assignments and the user has not specified characters, ask one concise question. Choose characters yourself only when the user clearly asks you to choose or assign them. Never guess an unclear mapping; when an individual face is too small or obscured to edit reliably, leave that face unchanged and mention it briefly.
+3. Write a detailed image-edit prompt based on the actual photo and the requested assignments. Describe each target by its visible position, then state the requested identity or theme. Include the preservation requirements below. Keep the result a believable, photorealistic casual group photo; do not turn it into a poster or promotional artwork unless the user asks for that.
+4. Immediately use the available image-editing/generation tool with the original attachment as the reference image. Reuse the image already attached in the conversation, using the tool's supported attachment or reference-image input. Do not ask the user to upload the same photo again in a second message. Do not run the edit from text alone when the original image is available. If a necessary assignment or image detail is genuinely ambiguous, ask one short question before editing.
+5. Return the generated image and the prompt used, or a concise faithful version of it. Briefly identify any requested face that you left unchanged because it was too small, covered, or otherwise unclear. Describe the result accurately; do not promise pixel-perfect preservation.
+
+## Preserve from the source photo
+
+Instruct the image editor to keep the exact visible headcount and each person's position, left-to-right order, body size, proportions, head size, pose, natural expression, gestures, and foreground/background overlap. Preserve the original clothing, colors, eyewear, hairstyle, accessories, and visible hand placement except for an explicitly requested change. Preserve the background, setting, crop, aspect ratio, camera angle, perspective, lighting and shadows, and the source's ordinary phone-photo texture, including flash or grain where present.
+
+Preserve visible text, numbers, logos, and signage in their original locations and wording. Do not invent, remove, or rewrite them. Avoid adding costumes, masks, props, powers, effects, or character-themed backgrounds unless requested. Keep unassigned people and uncertain or heavily obscured faces consistent with the original.
+
+## Prompt quality and limits
+
+Write instructions in concrete visual terms tied to the observed photo. Make clear which face belongs to each requested character by spatial position; never add, remove, duplicate, or swap people. For a named movie character, reflect the requested screen portrayal in the face while keeping the source person's clothing and body unless the user requests a change. Ask for a natural face integration that follows the source face's angle, expression, scale, lighting, and occlusion. Keep recognizable glasses and other user-requested details in place.
+
+Image editors may alter fine details even with precise instructions. Do not claim exact pixel-level preservation. If the generated result changes a significant protected detail, state that plainly and offer to refine the edit using the same attached source when available.
